@@ -29,7 +29,7 @@ return root[p] == root[q];
 
 }
 
-public void WeightedUnion(int p, int q){ //Change root of p to point ot root of q. Depth of p and q array accesses.
+public void WeightedUnion(int p, int q){ //Change root of p to point ot root of q. Also depending on size, smallers arrays will go into bigger array.
 
 int i = root(p);
 int j = root(q);
