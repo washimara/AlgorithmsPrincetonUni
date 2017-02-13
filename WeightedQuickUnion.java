@@ -6,17 +6,20 @@ private int[] sz;
 public WeightedQuickUnionUF(int N) //Sets id of each object to itself. N array Access
 {
 id = new int[N];
+sz = new int[N];
 
 for(i=0; i<N; i++){
 
 id[i]=i;
+sz[i] = 1;
 
 }
 
-public int root(int i){ //chase parent pointers untill root is reached. Depth if i array accesses
+public int root(int i){ //chase parent pointers untill root is reached. Depth if i array accesses. With Path compression, we are halving the necessary time to find a grandparrent.
 
 while(i != id[i]){
-i = id[i];
+id[i] = id[id[i]]; //Patch Compression
+i = id[i];	
 }
 
 return i;
